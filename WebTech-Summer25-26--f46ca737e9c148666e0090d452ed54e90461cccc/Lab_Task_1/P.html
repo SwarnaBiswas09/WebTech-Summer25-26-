@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Interactive Portfolio</title>
+</head>
+
+<body>
+
+<!-- <center> -->
+
+    <h1>My Portfolio</h1>
+
+    <h2 id="greeting">Good Morning</h2>
+
+    <button id="themeBtn" onclick="toggleMode()">Dark Mode</button>
+
+    <!-- <hr> -->
+
+    <!-- Navigation -->
+
+    <button onclick="showAbout()">About</button>
+    <button onclick="showProjects()">Projects</button>
+    <button onclick="showContact()">Contact</button>
+
+    <!-- <hr> -->
+
+<!-- </center> -->
+
+<!-- About Section -->
+
+<div id="about">
+
+    <h2>About Me</h2>
+
+    <p>
+        Hello! I am is Swarna Biswas.
+        I am a student at AIUB.
+      
+    </p>
+
+</div>
+
+<!-- <hr> -->
+
+<!-- Projects Section -->
+
+<div id="projects" style="display:none;">
+
+    <h2>My Projects</h2>
+
+    <ul>
+        <li>Portfolio Website</li>
+        <li>Student Management System</li>
+        <li>Online Shopping Website</li>
+    </ul>
+
+</div>
+
+<!-- <hr> -->
+
+<!-- Contact Section -->
+
+<div id="contact" style="display:none;">
+
+    <h2>Contact Me</h2>
+
+    <form onsubmit="return handleSubmit()">
+
+        <label>Name:</label><br>
+        <input type="text" id="name">
+       
+
+        <br><br>
+
+        <label>Email:</label><br>
+        <input type="text" id="email">
+
+        <br><br>
+
+        <label>Message:</label><br>
+
+        <textarea id="message" rows="5" cols="30"></textarea>
+
+        <br><br>
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+    <br>
+   
+
+    <div id="error" style="color:red;"></div>
+
+    <div id="result"></div>
+
+</div>
+
+<script>
+
+function toggleMode()
+{
+    var body = document.body;
+
+    var button = document.getElementById("themeBtn");
+
+    if(body.style.backgroundColor == "black")
+    {
+        body.style.backgroundColor = "white";
+        body.style.color = "black";
+
+        button.innerHTML = "Dark Mode";
+    }
+
+    else
+    {
+        body.style.backgroundColor = "black";
+        body.style.color = "white";
+
+        button.innerHTML = "Light Mode";
+    }
+
+}
+
+
+// Theme Switcher
+
+function toggleMode()
+{
+    var body = document.body;
+    var button = document.getElementById("themeBtn");
+
+    if(body.style.backgroundColor == "black")
+    {
+        body.style.backgroundColor = "white";
+        body.style.color = "black";
+        button.innerHTML = "Dark Mode";
+    }
+    else
+    {
+        body.style.backgroundColor = "black";
+        body.style.color = "white";
+        button.innerHTML = "Light Mode";
+    }
+}
+
+
+// Greeting Function
+
+function showGreeting()
+{
+    var time = new Date();
+
+    var hour = time.getHours();
+
+    var greeting = document.getElementById("greeting");
+
+    if(hour < 12)
+    {
+        greeting.innerHTML = "Good Morning";
+    }
+
+    else if(hour < 18)
+    {
+        greeting.innerHTML = "Good Afternoon";
+    }
+
+    else
+    {
+        greeting.innerHTML = "Good Evening";
+    }
+
+}
+
+showGreeting();
+
+
+// About
+
+function showAbout()
+{
+
+    document.getElementById("about").style.display="block";
+
+    document.getElementById("projects").style.display="none";
+
+    document.getElementById("contact").style.display="none";
+
+}
+
+
+
+// Projects
+
+function showProjects()
+{
+
+    document.getElementById("about").style.display="none";
+
+    document.getElementById("projects").style.display="block";
+
+    document.getElementById("contact").style.display="none";
+
+}
+
+
+
+function showContact()
+{
+
+    document.getElementById("about").style.display="none";
+
+    document.getElementById("projects").style.display="none";
+
+    document.getElementById("contact").style.display="block";
+
+}
+
+function handleSubmit()
+{
+     var name = document.getElementById("name").value;
+
+    var email = document.getElementById("email").value;
+
+    var message = document.getElementById("message").value;
+
+
+    document.getElementById("error").innerHTML = "";
+
+    document.getElementById("result").innerHTML = "";
+
+
+    // Validation 1 : Empty Field
+
+    if(name=="" || email=="" || message=="")
+    {
+        document.getElementById("error").innerHTML="Please Fill All Fields.";
+
+        return false;
+    }
+
+
+    // Validation 2 : Email Format
+
+    var pattern=/^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+    if(!pattern.test(email))
+    {
+        document.getElementById("error").innerHTML="Invalid Email Address.";
+
+        return false;
+    }
+
+
+    // Validation 3 : Message Minimum 10 Characters
+
+    if(message.length<10)
+    {
+        document.getElementById("error").innerHTML="Message must be at least 10 characters.";
+
+        return false;
+    }
+
+
+    // Success Message
+
+    document.getElementById("result").innerHTML=
+
+    "<h3>Contact Submitted Successfully</h3>"+
+
+    "Name : "+name+"<br>"+
+
+    "Email : "+email+"<br>"+
+
+    "Message : "+message;
+
+
+    return false;
+}
+
+
+</script>
+
+</body>
+
+</html>

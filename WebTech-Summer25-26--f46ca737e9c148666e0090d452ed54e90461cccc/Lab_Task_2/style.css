@@ -1,0 +1,32 @@
+.profile {
+    background-color: rgb(246, 238, 249);
+    width: 480px;
+    margin: 0 auto 40px auto;
+    border: 2px solid;
+    padding: 36px 40px;
+    text-align: center;
+    
+}
+
+#photo {
+    border-radius: 10%;
+}
+
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: rgb(239, 245, 222);
+    text-align: center;
+}
+
+#bio {
+    margin-top: 18px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    padding: 18px;
+    background-color: bisque;
+    font-size: 0.8rem;
+}
